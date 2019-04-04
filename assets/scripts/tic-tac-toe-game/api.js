@@ -1,10 +1,9 @@
 const config = require('../config.js')
 
-const playGames = function (data) {
+const playGames = function (id) {
   return $.ajax({
-    url: config.apiUrl + '/games/' + data.game.id,
-    method: 'PATCH',
-    data
+    url: config.apiUrl + `/games/${id}`,
+    method: 'PATCH'
   })
 }
 

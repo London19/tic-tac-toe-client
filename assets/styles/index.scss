@@ -1,7 +1,14 @@
 @import '~bootstrap/scss/bootstrap';
 
-td {
-  border: 1px solid black;
+.container {
+  height: 300px;
+}
+
+.row {
   height: 50px;
-  width: 50px;
+  width: 300px;
+}
+
+.col-4 {
+  width: 100px;
 }
