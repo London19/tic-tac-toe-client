@@ -26,8 +26,46 @@ const onPlayGames = function (event) {
 
   console.log(gameBoard)
 
-const theWinner
-} // gameBoard[0] = $('div').data('index0') === 'o'
+  // const theWinner = function (gameBoard, currentPlayer) {
+  //   if((gameBoard[0] === gameBoard[1] && gameBoard[0] === gameBoard[2] &&
+  //     gameBoard[0] === currentValue)
+  //     || (gameBoard[3] === gameBoard[4] && gameBoard[3] === gameBoard[5] &&
+  //       gameBoard[3] === currentValue)
+  //       || (gameBoard[6] === gameBoard[7] && gameBoard[6] === gameBoard[8] &&
+  //         gameBoard[6] === currentValue)
+  //         || (gameBoard[1] === gameBoard[4] && gameBoard[1] === gameBoard[7] &&
+  //           gameBoard[1] === currentValue)
+  //           || (gameBoard[2] === gameBoard[5] && gameBoard[2] === gameBoard[8] &&
+  //             gameBoard[2] === currentValue)
+  //             || (gameBoard[0] === gameBoard[4] && gameBoard[0] === gameBoard[8]
+  //               && gameBoard[0] === currentValue)
+  //               || (gameBoard[2] === gameBoard[4]
+  //                 && gameBoard[2] === gameBoard[6] &&
+  //                 gameBoard[2] === currentValue)) {
+  //     console.log('Winner is ' + currentPlayer )
+  //   } else {
+  //     console.log('Winner is computer')
+  //   }
+  // }
+    // [0, 1, 2],
+    // [3, 4, 5],
+    // [6, 7, 8],
+    // [0, 3, 6],
+    // [1, 4, 7],
+    // [2, 5, 8],
+    // [0, 4, 8],
+    // [2, 4, 6]
+
+
+  // if (gameBoard[0] === currentPlayer && gameBoard[1] === currentPlayer) {
+  //   console.log('win')
+  // } else {
+  //   console.log('not Win')
+  //
+
+// const theWinner = function ()
+
+// gameBoard[0] = $('div').data('index0') === 'o'
 
 //   const currentValue = ' '
   //  const onSelectBox = function (event) {
