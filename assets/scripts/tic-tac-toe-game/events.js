@@ -1,8 +1,7 @@
 // const api = require('./api.js')
 // const ui = require('./ui.js')
 // const getFormFields = require('../../../lib/get-form-fields.js')
-const gameBoard = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
-console.log(gameBoard)
+
 
 let currentPlayer = 'x'
 
@@ -18,7 +17,17 @@ const onPlayGames = function (event) {
   } else {
     console.log('the current player is ' + currentPlayer)
   }
-$('div').data('index') === "o"
+
+  const gameBoard = ['', '', '', '', '', '', '', '', '']
+  // gameBorad[i] = boxId
+  const boxId = $(event.target).data('index')
+
+  gameBoard[boxId] = currentPlayer
+
+  console.log(gameBoard)
+
+const theWinner
+} // gameBoard[0] = $('div').data('index0') === 'o'
 
 //   const currentValue = ' '
   //  const onSelectBox = function (event) {
