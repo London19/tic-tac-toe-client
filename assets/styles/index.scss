@@ -1,15 +1,26 @@
 @import '~bootstrap/scss/bootstrap';
 
+body{
+  align-items: center;
+}
 .container {
-  height: 300px;
+  height: 200px;
+  width: 200px;
 }
 
 .row {
   height: 50px;
-  width: 300px;
+  width: 200px;
 }
 
 .col-4 {
-  width: 100px;
   border: 1px solid;
+  width: 60px;
 }
+
+
+h1 {
+  color: #FF99FF;
+  font-style: italic;
+  text-align: center;
+  }

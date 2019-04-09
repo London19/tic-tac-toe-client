@@ -15,7 +15,6 @@ let gameStatus = false
 
 const onPlayGames = function (event) {
   event.preventDefault()
-
   if (gameStatus === false) {
     if ($(event.target).text() === '') {
       $(event.target).text(store.currentPlayer)
@@ -28,56 +27,54 @@ const onPlayGames = function (event) {
       $('.game-update').text('invalid Move!')
       // put a massage "invalid move"
     }
-    const boxId = $(event.target).data('index')
-    store.gameBoard[boxId] = store.currentPlayer
-    console.log(store.gameBoard)
-    api.updateGame(store.currentPlayer, boxId, gameStatus)
-    console.log(store.currentPlayer, boxId, gameStatus)
   }
-}
-const theGameIsTie = function () {
+  const boxId = $(event.target).data('index')
+  store.gameBoard[boxId] = store.currentPlayer
   console.log(store.gameBoard)
-  store.gameBoard.every((item) => {
-    if (item !== '') {
-      gameStatus = true
-      $('.game-update').text(`GAME OVER! DRAW!`)
-    }
-  })
-}
-const theWinner = function (gameBoard, currentPlayer) {
-  console.log(gameBoard, currentPlayer)
-  if ((gameBoard[0] === gameBoard[1] && gameBoard[0] === gameBoard[2] &&
+  api.updateGame(store.currentPlayer, boxId, gameStatus)
+  console.log(store.currentPlayer, boxId, gameStatus)
+
+  const theWinner = function (gameBoard, currentPlayer) {
+    console.log(gameBoard, currentPlayer)
+    if ((gameBoard[0] === gameBoard[1] && gameBoard[0] === gameBoard[2] &&
           gameBoard[0] === currentPlayer) ||
-  // horizontal #1
+    // horizontal #1
         (gameBoard[3] === gameBoard[4] && gameBoard[3] === gameBoard[5] &&
           gameBoard[3] === currentPlayer) ||
-  // horizontal #2
+    // horizontal #2
         (gameBoard[6] === gameBoard[7] && gameBoard[6] === gameBoard[8] &&
           gameBoard[6] === currentPlayer) ||
-  // horizontal #3
+    // horizontal #3
         (gameBoard[0] === gameBoard[3] && gameBoard[0] === gameBoard[6] &&
           gameBoard[0] === currentPlayer) ||
-  // vertical #1
+    // vertical #1
         (gameBoard[1] === gameBoard[4] && gameBoard[1] === gameBoard[7] &&
           gameBoard[1] === currentPlayer) ||
-  // vertical #2
+    // vertical #2
         (gameBoard[2] === gameBoard[5] && gameBoard[2] === gameBoard[8] &&
           gameBoard[2] === currentPlayer) ||
-  // vertical #3
+    // vertical #3
         (gameBoard[0] === gameBoard[4] && gameBoard[0] === gameBoard[8] &&
           gameBoard[0] === currentPlayer) ||
-  // diagonal #1
+    // diagonal #1
         (gameBoard[2] === gameBoard[4] && gameBoard[2] === gameBoard[6] &&
           gameBoard[2] === currentPlayer)) {
     // diagonal #2
-    gameStatus = true
-    theWinner(store.gameBoard, store.currentPlayer)
-    $('.game-update').text(`Winner is ${currentPlayer}`)
-    console.log(theWinner)
-  } else {
-    gameStatus = true
+      theWinner(store.gameBoard, store.currentPlayer)
+      $('.game-update').text(`Winner is ${currentPlayer}`)
+    } else {
     // $('.game-update').text('Winner is the computer!')
-    theGameIsTie()
+      theGameIsTie()
+    }
+  }
+  const theGameIsTie = function () {
+    console.log(store.gameBoard)
+    store.gameBoard.every((item) => {
+      if (item !== '') {
+        gameStatus = true
+        $('.game-update').text(`GAME OVER! DRAW!`)
+      }
+    })
   }
 }
 // if (theGameIsTie()) {
@@ -123,9 +120,15 @@ const onChangePassword = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault()
-
+  $('#game-board').hide()
+  $('.new-game').hide()
+  $('.get-game-numbers').hide()
+  $('.restart').hide()
+  $('#change-password').hide()
+  $('#sign-in').show()
+  $('#sign-up').show()
   api.signOut()
-    .then()
+    .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
 }
 

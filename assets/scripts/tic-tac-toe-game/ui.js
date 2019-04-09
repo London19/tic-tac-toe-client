@@ -27,7 +27,6 @@ const changePwFailure = function () {
 }
 
 const signOutSuccess = function () {
-  console.log('sign out success')
 }
 
 const signOutFailure = function () {
