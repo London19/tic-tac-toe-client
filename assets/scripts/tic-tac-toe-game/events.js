@@ -159,6 +159,8 @@ const onCreateNewGame = function () {
 }
 
 const getGames = function () {
+  event.preventDefault()
+  $('.game-update').hide()
   api.getGames()
     .then()
     .catch()
