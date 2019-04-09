@@ -20,8 +20,10 @@ const onPlayGames = function (event) {
       $(event.target).text(store.currentPlayer)
       if (store.currentPlayer === 'x') {
         store.currentPlayer = 'o'
+        // theWinner(store.gameBoard, store.currentPlayer)
       } else {
         store.currentPlayer = 'x'
+        // theWinner(store.gameBoard, store.currentPlayer)
       }
     } else {
       $('.game-update').text('invalid Move!')
@@ -60,13 +62,14 @@ const onPlayGames = function (event) {
         (gameBoard[2] === gameBoard[4] && gameBoard[2] === gameBoard[6] &&
           gameBoard[2] === currentPlayer)) {
     // diagonal #2
-      theWinner(store.gameBoard, store.currentPlayer)
+      gameStatus = true
       $('.game-update').text(`Winner is ${currentPlayer}`)
     } else {
     // $('.game-update').text('Winner is the computer!')
       theGameIsTie()
     }
   }
+  theWinner(store.gameBoard, store.currentPlayer)
   const theGameIsTie = function () {
     console.log(store.gameBoard)
     store.gameBoard.every((item) => {
