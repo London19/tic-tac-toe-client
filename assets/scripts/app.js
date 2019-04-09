@@ -12,5 +12,5 @@ $(() => {
   $('.col-4').on('click', events.onPlayGames)
   events.addHandlers()
   $('.restart').on('click', events.restartTheGame, events.createNewGame)
-  $('.get-games').on('click', events.getGames)
+  $('.get-game-numbers').on('click', events.getGames)
 })
