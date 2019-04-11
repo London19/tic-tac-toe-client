@@ -35,11 +35,13 @@ const onPlayGames = function (event) {
         })
         .catch()
     } else {
-      $('.game-update').text('Invalid Move!')
+      $('.game-update').text('Invalid Move!').show()
+      $('.game-update').hide(2000)
       // put a massage "invalid move"
     }
   } else {
-    $('.game-update').text('Game Over!')
+    $('.game-update').text('Game Over!').show()
+    $('.game-update').hide(2000)
     // put a massage "invalid move"
   }
 }
@@ -57,7 +59,7 @@ const theGameIsTie = function (gameBoard) {
   console.log(theGameIsTie)
   if (boardIsFull) {
     gameStatus = true
-    $('.game-update').text(`GAME Tie!`).show()
+    $('.game-update').text(`Game Tie!`)
   }
 }
 
@@ -88,7 +90,8 @@ const theWinner = function (gameBoard, currentPlayer) {
         gameBoard[2] === currentPlayer)) {
   // diagonal #2
     gameStatus = true
-    $('.game-update').text(`Winner is ${currentPlayer}`)
+    $('.game-update').text(`Winner is ${currentPlayer}`).show()
+    $('.game-update').hide(2000)
   } else {
   // $('.game-update').text('Winner is the computer!')
     theGameIsTie()
@@ -104,7 +107,7 @@ const onSignUp = function (event) {
   event.preventDefault()
 
   const data = getFormFields(event.target)
-//  console.log(data)
+  //  console.log(data)
   api.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
@@ -145,6 +148,7 @@ const onSignOut = function (event) {
   $('#change-password').hide()
   $('#sign-in').show()
   $('#sign-up').show()
+  $('#sign-out').hide()
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
@@ -156,7 +160,6 @@ const addHandlers = function () {
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
   $('.new-game').on('click', onCreateNewGame)
-  $('form').reset()
 }
 const restartTheGame = function (data) {
   store.game = data.game
@@ -176,10 +179,9 @@ const onCreateNewGame = function () {
 
 const getGames = function () {
   event.preventDefault()
-  $('.game-update').empty()
   api.getGames()
-    .then()
-    .catch()
+    .then(ui.getGamesSuccess)
+    .catch(ui.getGamesFailure)
 }
 
 module.exports = {
