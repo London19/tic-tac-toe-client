@@ -2,11 +2,13 @@
 const store = require('../store')
 
 const signUpSuccess = function (data) {
-  console.log('sign up success ran with the data', data)
+//  console.log('sign up success ran with the data', data)
+  $('.game-update').text('Successfully Signed Up!')
 }
 
 const signUpFailure = function (data) {
-  console.log('sign up failure ran with the data', data)
+//  console.log('sign up failure ran with the data', data)
+  $('.game-update').text('Sign Up Failed')
 }
 
 const signInSuccess = function (data) {
@@ -19,11 +21,11 @@ const signInFailure = function (data) {
 }
 
 const changePwSuccess = function () {
-  console.log('change password success')
+  $('.game-update').text('Successfully changed your password!')
 }
 
 const changePwFailure = function () {
-  console.log('change password failure')
+  $('.game-update').text('Chang password failed!')
 }
 
 const signOutSuccess = function () {
@@ -40,7 +42,7 @@ const getGamesSuccess = function (data) {
 }
 
 const getGamesFailure = function () {
-  console.log('sign out failure')
+  $('.game-update').text('GET Game Failed')
 }
 module.exports = {
   signUpSuccess,
