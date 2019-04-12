@@ -45,21 +45,28 @@ const onPlayGames = function (event) {
     // put a massage "invalid move"
   }
 }
+// const boardIsFull = function () {
+//   return store.gameBoard.every((item) => {
+//     return item !== ''
+//   })
+// }
 
-const boardIsFull = store.gameBoard.every((item) => {
-  return item !== ''
-})
 // store.gameBoard.every((item) => {
 //   if (item !== '') {
 //     gameStatus = true
 //     $('.game-update').text(`GAME OVER! DRAW!`)
 //   }
 // })
-const theGameIsTie = function (gameBoard) {
-  console.log(theGameIsTie)
+const theGameIsTie = function () {
+  const boardIsFull = store.gameBoard.every((item) => {
+    console.log(item, item !== '')
+    return item !== ''
+  })
+  console.log(boardIsFull)
   if (boardIsFull) {
     gameStatus = true
-    $('.game-update').text(`Game Tie!`)
+    $('.game-update').text(`Game Tie!`).show()
+    $('.game-update').hide(2000)
   }
 }
 
@@ -115,12 +122,11 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault()
-  $('#sign-in').hide()
-  $('#sign-up').hide()
   $('.new-game').show()
   $('.get-game-numbers').show()
-  $('#change-password').show()
-  $('#sign-out').show()
+  // $('#sign-up').show()
+  // $('#sign-out').show()
+  // $('#change-password').hide()
 
   const data = getFormFields(event.target)
   console.log(data)
@@ -160,6 +166,7 @@ const addHandlers = function () {
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
   $('.new-game').on('click', onCreateNewGame)
+  // $('.col-4').on('click')
 }
 const restartTheGame = function (data) {
   store.game = data.game
