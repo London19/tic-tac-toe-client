@@ -147,14 +147,6 @@ const onChangePassword = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault()
-  $('#game-board').hide()
-  $('.new-game').hide()
-  $('.get-game-numbers').hide()
-  $('.restart').hide()
-  $('#change-password').hide()
-  $('#sign-in').show()
-  $('#sign-up').show()
-  $('#sign-out').hide()
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
