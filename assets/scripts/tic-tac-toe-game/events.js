@@ -10,7 +10,7 @@ $('.restart').hide()
 $('#change-password').hide()
 $('#sign-out').hide()
 
-store.currentPlayer = 'x'
+store.currentPlayer = 'X'
 store.gameBoard = ['', '', '', '', '', '', '', '', '']
 let gameStatus = false
 
@@ -25,11 +25,11 @@ const onPlayGames = function (event) {
           $(event.target).text(store.currentPlayer)
           theWinner(store.gameBoard, store.currentPlayer)
 
-          if (store.currentPlayer === 'x') {
-            store.currentPlayer = 'o'
+          if (store.currentPlayer === 'X') {
+            store.currentPlayer = 'O'
             // theWinner(store.gameBoard, store.currentPlayer)
           } else {
-            store.currentPlayer = 'x'
+            store.currentPlayer = 'X'
             // theWinner(store.gameBoard, store.currentPlayer)
           }
         })
@@ -42,21 +42,9 @@ const onPlayGames = function (event) {
   } else {
     $('.game-update').text('Game Over!').show()
     $('.game-update').hide(2000)
-    // put a massage "invalid move"
   }
 }
-// const boardIsFull = function () {
-//   return store.gameBoard.every((item) => {
-//     return item !== ''
-//   })
-// }
 
-// store.gameBoard.every((item) => {
-//   if (item !== '') {
-//     gameStatus = true
-//     $('.game-update').text(`GAME OVER! DRAW!`)
-//   }
-// })
 const theGameIsTie = function () {
   const boardIsFull = store.gameBoard.every((item) => {
     console.log(item, item !== '')
@@ -165,7 +153,7 @@ const restartTheGame = function (data) {
   gameStatus = false
   $('#game-board').show()
   store.gameBoard = ['', '', '', '', '', '', '', '', '']
-  store.currentPlayer = 'x'
+  store.currentPlayer = 'X'
   $('.col-4').empty()
   console.log(gameStatus, store.game, store.currentPlayer)
 }
