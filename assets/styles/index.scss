@@ -1,8 +1,9 @@
 @import '~bootstrap/scss/bootstrap';
 
-body{
+body {
   align-items: center;
 }
+
 .container {
   height: 350px;
   width: 350px;
@@ -15,6 +16,7 @@ body{
 
 .col-4 {
   border: 1px solid;
+  text-align: center;
   width: 100px;
 }
 
