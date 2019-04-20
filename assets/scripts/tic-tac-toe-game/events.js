@@ -37,7 +37,6 @@ const onPlayGames = function (event) {
     } else {
       $('.game-update').text('Invalid Move!').show()
       $('.game-update').hide(2000)
-      // put a massage "invalid move"
     }
   } else {
     $('.game-update').text('Game Over!').show()
@@ -47,10 +46,8 @@ const onPlayGames = function (event) {
 
 const theGameIsTie = function () {
   const boardIsFull = store.gameBoard.every((item) => {
-    console.log(item, item !== '')
     return item !== ''
   })
-  console.log(boardIsFull)
   if (boardIsFull) {
     gameStatus = true
     $('.game-update').text(`Game Tie!`).show()
@@ -106,7 +103,6 @@ const onSignIn = function (event) {
   event.preventDefault()
 
   const data = getFormFields(event.target)
-  console.log(data)
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
@@ -135,7 +131,6 @@ const addHandlers = function () {
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
   $('.new-game').on('click', onCreateNewGame)
-  // $('.col-4').on('click')
 }
 const restartTheGame = function (data) {
   store.game = data.game
@@ -144,7 +139,6 @@ const restartTheGame = function (data) {
   store.gameBoard = ['', '', '', '', '', '', '', '', '']
   store.currentPlayer = 'X'
   $('.col-4').empty()
-  console.log(gameStatus, store.game, store.currentPlayer)
 }
 
 const onCreateNewGame = function () {

@@ -2,7 +2,6 @@
 const store = require('../store')
 
 const signUpSuccess = function (data) {
-//  console.log('sign up success ran with the data', data)
   $('.game-update').text('Successfully Signed Up!').show()
   $('.game-update').hide(2000)
   $('form').trigger('reset')
@@ -10,7 +9,6 @@ const signUpSuccess = function (data) {
 }
 
 const signUpFailure = function (data) {
-//  console.log('sign up failure ran with the data', data)
   $('.game-update').text('Sign Up Failed').show()
   $('.game-update').hide(2000)
   $('form').trigger('reset')
