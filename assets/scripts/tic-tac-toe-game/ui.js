@@ -21,10 +21,13 @@ const signInSuccess = function (data) {
   store.user = data.user
   $('.game-update').text('Welcome to Tic Tac Toe!').show()
   $('.game-update').hide(3000)
+  $('#change-password').show()
   $('form').trigger('reset')
   $('#sign-up').hide()
   $('#sign-in').hide()
   $('#sign-out').show()
+  $('.new-game').show()
+  $('.get-game-numbers').show()
 }
 
 const signInFailure = function (data) {

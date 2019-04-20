@@ -59,7 +59,6 @@ const theGameIsTie = function () {
 }
 
 const theWinner = function (gameBoard, currentPlayer) {
-  console.log(gameBoard, currentPlayer)
   if ((gameBoard[0] === gameBoard[1] && gameBoard[0] === gameBoard[2] &&
         gameBoard[0] === currentPlayer) ||
   // horizontal #1
@@ -92,17 +91,12 @@ const theWinner = function (gameBoard, currentPlayer) {
     theGameIsTie()
   }
 }
-// if (theGameIsTie()) {
-//   console.log('the game is tie')
-// } else {
-//   console.log('the game is still going')
-//
-// }
+
 const onSignUp = function (event) {
   event.preventDefault()
 
   const data = getFormFields(event.target)
-  //  console.log(data)
+
   api.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
@@ -110,11 +104,6 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault()
-  $('.new-game').show()
-  $('.get-game-numbers').show()
-  // $('#sign-up').show()
-  // $('#sign-out').show()
-  // $('#change-password').hide()
 
   const data = getFormFields(event.target)
   console.log(data)
@@ -127,7 +116,7 @@ const onChangePassword = function (event) {
   event.preventDefault()
 
   const data = getFormFields(event.target)
-  console.log(data)
+
   api.changePassword(data)
     .then(ui.changePwSuccess)
     .catch(ui.changePWFailure)

@@ -20,11 +20,17 @@ body{
 
 
 h1 {
-  color: #FF99FF;
-  font-style: italic;
+  color: #f7d2ec;
+  font-family: fantasy, serif;
+  font-weight: bold;
   text-align: center;
   }
 
-#sign-up {
-  align-self: center;
+#sign-up, #sign-in, #sign-out, #change-password, .button {
+  display: flex;
+  justify-content: center;
+  border: 20px;
+  font-size: 10px;
+  font-weight: bold;
+  margin: 2px;
 }
